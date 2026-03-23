@@ -1,0 +1,55 @@
+cat > .gitignore << 'EOF'
+# Claude & Local files
+.claude/
+devserver.log
+nul
+project_structure.txt
+
+# Dependencies (anywhere in the project)
+**/node_modules/
+**/.pnp
+**/.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Testing
+**/coverage/
+
+# Next.js
+**/.next/
+**/out/
+**/build/
+**/dist/
+
+# Production
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Misc
+.DS_Store
+*.pem
+
+# Env files
+.env*
+!.env.example
+
+# Vercel
+.vercel
+**/.vercel/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+EOF
