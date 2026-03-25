@@ -69,17 +69,9 @@ export default function Hero() {
         />
       </motion.div>
 
-      {/* Glow orbs */}
-      <motion.div
-        className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
-        animate={{ y: [0, -12, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl"
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-      />
+      {/* Glow orbs — static, no infinite JS animation */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Content */}
       <motion.div
@@ -172,18 +164,17 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — outer fades in via framer-motion, inner bobs via CSS */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: [0, 6, 0] }}
-        transition={{
-          opacity: { delay: 1.8, duration: 0.5 },
-          y: { delay: 1.8, duration: 1.5, repeat: Infinity, ease: "easeInOut" },
-        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.8, duration: 0.5 }}
       >
-        <div className="w-6 h-10 rounded-full border-2 border-muted flex justify-center">
-          <div className="w-1 h-2 bg-muted rounded-full mt-2 animate-pulse" />
+        <div style={{ animation: "hero-scroll-bob 1.5s ease-in-out 1.8s infinite" }}>
+          <div className="w-6 h-10 rounded-full border-2 border-muted flex justify-center">
+            <div className="w-1 h-2 bg-muted rounded-full mt-2 animate-pulse" />
+          </div>
         </div>
       </motion.div>
     </section>

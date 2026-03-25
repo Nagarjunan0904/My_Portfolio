@@ -6,37 +6,56 @@ import { staggerContainerSlow, fadeUp } from "@/lib/animations";
 
 const experiences = [
   {
-    role: "Computer Vision Engineer",
-    company: "Your Company Name",
-    period: "2024 — Present",
+    role: "AI/ML Intern (Team Lead – HGI, Content Moderation)",
+    company: "Uplifty AI",
+    period: "Aug 2025 – Present",
+    location: "Remote",
     description: [
-      "Developed real-time object detection and tracking systems for production environments",
-      "Optimized deep learning models for edge deployment using TensorRT and ONNX",
-      "Built data pipelines for large-scale image dataset processing and annotation",
+      "Led development of Human Growth Index (HGI) pipelines using transformer-based models (BERTweet + LoRA), enabling structured scoring across multiple behavioral dimensions",
+      "Built a multi-stage image moderation system combining perceptual hashing, NSFW classification, OCR signals, and rule-based decisioning, improving unsafe-content recall by ~18% with <3% false positives",
+      "Designed event-driven ML workflows using Supabase triggers, enabling real-time content evaluation and scalable orchestration across services",
+      "Optimized inference pipelines on Cloud Run, reducing latency from ~420 ms → ~190 ms (~55% improvement) through preprocessing and model efficiency tuning",
     ],
-    tech: ["PyTorch", "OpenCV", "TensorRT", "Docker"],
+    tech: ["Python", "PyTorch", "Transformers", "FastAPI", "Google Cloud Run", "PDQ", "OCR", "Supabase"],
   },
   {
-    role: "ML / Perception Engineer",
-    company: "Your Previous Company",
-    period: "2022 — 2024",
+    role: "Research Assistant – Marine Robotics Lab",
+    company: "Binghamton University",
+    period: "Aug 2025 – Present",
+    location: "Binghamton, NY",
     description: [
-      "Implemented 3D point cloud processing pipelines for LiDAR-based perception",
-      "Trained and deployed semantic segmentation models for autonomous systems",
-      "Collaborated with cross-functional teams to integrate CV models into production",
+      "Conducted field deployments using BlueBoat USV, collecting synchronized Side-Scan Sonar (SSS) and Single-Beam Echosounder (SBE) datasets for underwater perception and mapping",
+      "Built data pipelines for sensor ingestion and processing, converting ROS bag recordings into structured datasets (50+ CSV outputs) for downstream analysis",
+      "Investigating multi-sensor fusion approaches for sonar + GPS data to improve depth estimation, confidence scoring, and spatial alignment",
+      "Studying perception literature (SLAM, multimodal sensing, mapping) to design robust evaluation strategies for real-world marine environments",
     ],
-    tech: ["TensorFlow", "Open3D", "Python", "AWS"],
+    tech: ["ROS Noetic", "BlueBoat USV", "Sonar (SSS/SBE)", "Python", "Linux"],
   },
   {
-    role: "Data Science Intern",
-    company: "Your Intern Company",
-    period: "2021 — 2022",
+    role: "Senior Associate",
+    company: "State Street Corporation",
+    period: "Jul 2022 – Aug 2024",
+    location: "Bangalore, India",
     description: [
-      "Conducted exploratory data analysis on large datasets using Python and Pandas",
-      "Built classification models with scikit-learn achieving 95%+ accuracy",
-      "Created dashboards and visualizations for stakeholder reporting",
+      "Developed and maintained enterprise-grade backend systems in a high-availability financial environment with strict reliability requirements",
+      "Built and optimized API-driven services supporting large-scale transaction workflows and data integration pipelines",
+      "Strengthened system robustness through production debugging, monitoring, and performance tuning under real client constraints",
+      "Collaborated across teams to deliver scalable solutions aligned with regulatory and operational standards",
     ],
-    tech: ["Python", "Scikit-learn", "Pandas", "Matplotlib"],
+    tech: ["Python", "IBM ACE", "IIB v10", "ESQL", "MQ", "Power BI"],
+  },
+  {
+    role: "System Engineer",
+    company: "Tata Consultancy Services (TCS)",
+    period: "Sep 2018 – Jun 2022",
+    location: "Chennai, India",
+    description: [
+      "Built and supported backend services using IBM ACE (IIB) and IBM MQ, enabling reliable message-driven integration systems",
+      "Designed and maintained data transformation pipelines for enterprise clients, ensuring high-throughput and fault tolerance",
+      "Gained strong foundations in SDLC, debugging, and production support, handling real-world deployment challenges",
+      "Contributed to cross-functional development and support cycles in client-facing environments",
+    ],
+    tech: ["IBM IIB", "ACE", "ESQL", "SOAPUI"],
   },
 ];
 
@@ -78,14 +97,15 @@ export default function Experience() {
                   whileHover={{ y: -3, boxShadow: "0 10px 30px rgba(99,102,241,0.10)" }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
                     <div>
                       <h3 className="text-lg font-semibold text-foreground">
                         {exp.role}
                       </h3>
                       <p className="text-accent-light text-sm">{exp.company}</p>
+                      <p className="text-xs text-muted/70 mt-0.5">{exp.location}</p>
                     </div>
-                    <span className="text-sm text-muted font-[family-name:var(--font-jetbrains)] mt-1 md:mt-0">
+                    <span className="text-sm text-muted font-[family-name:var(--font-jetbrains)] mt-1 md:mt-0 md:text-right shrink-0">
                       {exp.period}
                     </span>
                   </div>

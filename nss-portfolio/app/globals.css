@@ -55,8 +55,100 @@ body {
 }
 
 .glass {
-  background: rgba(17, 17, 24, 0.8);
-  backdrop-filter: blur(12px);
+  background: rgba(17, 17, 24, 0.92);
   border: 1px solid var(--border);
+}
+
+/* ─── Background Layer System ────────────────────────────────────────────── */
+
+:root {
+  --mouse-x: 50vw;
+  --mouse-y: 50vh;
+}
+
+.bg-layers-root {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -10;
+}
+
+.bg-layer {
+  position: absolute;
+  inset: 0;
+}
+
+/* Layer 1: gradient orbs */
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.bg-orb-1 {
+  width: 50vw;
+  height: 50vw;
+  top: -20%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
+.bg-orb-2 {
+  width: 40vw;
+  height: 40vw;
+  top: 30%;
+  right: -15%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.09) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
+.bg-orb-3 {
+  width: 35vw;
+  height: 35vw;
+  bottom: -15%;
+  left: 25%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
+/* Layer 2: dot grid */
+.bg-layer-grid {
+  background-image: radial-gradient(
+    circle,
+    rgba(14, 165, 233, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 40px 40px;
+}
+
+/* Layer 3: mouse spotlight — hidden on touch/mobile */
+.bg-layer-mouse {
+  background: radial-gradient(
+    500px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.04),
+    transparent 40%
+  );
+}
+
+@media (max-width: 1023px) {
+  .bg-layer-mouse { display: none; }
+}
+
+/* Layer 4: noise — position/size comes from .bg-layer */
+.bg-layer-noise {
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+}
+
+@keyframes hero-scroll-bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(6px); }
+}
+
+/* Reduce motion: kill mouse glow and scroll bob */
+@media (prefers-reduced-motion: reduce) {
+  .bg-layer-mouse { display: none; }
+  [style*="hero-scroll-bob"] { animation: none !important; }
 }
 

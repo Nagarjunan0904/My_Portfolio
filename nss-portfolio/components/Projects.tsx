@@ -6,46 +6,105 @@ import { staggerContainer, fadeUp } from "@/lib/animations";
 
 const projects = [
   {
-    title: "Real-Time Object Detection Pipeline",
+    title: "3D Gaussian Splatting – Indoor Multi-Room Reconstruction",
+    timeline: "Mar 2026",
     description:
-      "End-to-end object detection system using YOLOv8 with custom training on domain-specific datasets. Optimized for real-time inference with TensorRT.",
-    tags: ["PyTorch", "YOLOv8", "TensorRT", "OpenCV", "CUDA"],
-    github: "https://github.com/Nagarjunan0904",
+      "Built an end-to-end 3D reconstruction pipeline from smartphone video using COLMAP Structure-from-Motion and Nerfstudio Gaussian Splatting.",
+    achievements: [
+      "Processed 1,206 frames achieving 99.4% registration (1,199/1,206 images)",
+      "0.567 px reprojection error via bundle adjustment",
+      "Generated 294K+ point sparse reconstruction",
+      "Optimized 917K Gaussian representation on RTX 5070 GPU",
+    ],
+    tags: ["3D Reconstruction", "Neural Rendering", "SfM", "NeRF", "CUDA"],
+    github: null,
+    icon: "✨",
+    gradient: "from-violet-500/20 to-indigo-500/20",
+    isNew: true,
   },
   {
-    title: "3D Point Cloud Segmentation",
+    title: "Multi-Sensor Perception Pipeline (AGV System)",
+    timeline: "Jan 2026 – Feb 2026",
     description:
-      "Semantic segmentation of LiDAR point clouds for autonomous driving scenes using PointNet++ and Open3D for visualization and preprocessing.",
-    tags: ["Open3D", "PyTorch", "PointNet++", "LiDAR", "Python"],
-    github: "https://github.com/Nagarjunan0904",
+      "Developed a production-style perception pipeline combining camera and LiDAR data for autonomous ground vehicles.",
+    achievements: [
+      "Fused YOLOv8 camera detections with LiDAR point clouds via calibrated late fusion",
+      "97.7% 2D recall on KITTI dataset",
+      "1.42 m mean 3D center error",
+      ">91% detection retention under 70% LiDAR point dropout",
+    ],
+    tags: ["Sensor Fusion", "Autonomous Driving", "Computer Vision", "LiDAR", "3D Perception"],
+    github: null,
+    icon: "🤖",
+    gradient: "from-blue-500/20 to-cyan-500/20",
+    isNew: false,
   },
   {
-    title: "Monocular Depth Estimation",
+    title: "Open-Vocabulary Object Detection for Maritime Perception",
+    timeline: "Sep 2025 – Nov 2025",
     description:
-      "Deep learning model for predicting depth maps from single RGB images using encoder-decoder architecture with attention mechanisms.",
-    tags: ["TensorFlow", "Keras", "Depth Estimation", "CNN", "Python"],
-    github: "https://github.com/Nagarjunan0904",
+      "Built a comparative pipeline for open-vocabulary detection enabling identification of unseen maritime objects using language-driven queries.",
+    achievements: [
+      "Benchmarked YOLOv8 vs OWL-ViT and GroundingDINO",
+      "Achieved mAP@0.5 ≈ 0.71 on known classes",
+      "Improved recall on novel hazards using language-driven queries",
+      "Deployed interactive Streamlit system for human-in-the-loop review",
+    ],
+    tags: ["Open-Vocabulary", "Maritime Safety", "Zero-Shot Detection", "Robotics"],
+    github: null,
+    icon: "🎯",
+    gradient: "from-teal-500/20 to-green-500/20",
+    isNew: false,
   },
   {
-    title: "Visual SLAM System",
+    title: "Retail Demand Forecasting System (End-to-End)",
+    timeline: "May 2025 – Sep 2025",
     description:
-      "Feature-based visual SLAM implementation for indoor navigation with loop closure detection and real-time 3D map construction.",
-    tags: ["OpenCV", "C++", "SLAM", "Feature Matching", "3D Mapping"],
-    github: "https://github.com/Nagarjunan0904",
+      "Built an end-to-end time-series forecasting system for retail demand prediction.",
+    achievements: [
+      "Processed 125K+ records with 40+ engineered features",
+      "Benchmarked LightGBM, XGBoost, Prophet, and TFT models",
+      "Deployed FastAPI service with sub-60 ms prediction latency",
+      "~95% speedup through inference caching",
+    ],
+    tags: ["Time Series", "Forecasting", "MLOps", "Production ML"],
+    github: null,
+    icon: "📊",
+    gradient: "from-amber-500/20 to-orange-500/20",
+    isNew: false,
   },
   {
-    title: "Image Classification with Vision Transformers",
+    title: "Mental Health Anonymity Monitor (MHAM)",
+    timeline: "Sep 2025 – Nov 2025",
     description:
-      "Fine-tuned Vision Transformer (ViT) for multi-class image classification, achieving state-of-the-art accuracy on custom industrial datasets.",
-    tags: ["PyTorch", "ViT", "Transfer Learning", "Transformers"],
-    github: "https://github.com/Nagarjunan0904",
+      "Scalable NLP pipeline processing 800K+ social media posts for behavioral analysis.",
+    achievements: [
+      "~99.9% uptime with rate-limit handling",
+      "Integrated Perspective API for toxicity detection",
+      "Built Flask dashboard for real-time monitoring",
+      "Containerized for reliable deployment",
+    ],
+    tags: ["NLP", "Data Pipeline", "Mental Health", "Social Media"],
+    github: null,
+    icon: "🧠",
+    gradient: "from-pink-500/20 to-rose-500/20",
+    isNew: false,
   },
   {
-    title: "Automated Data Annotation Tool",
+    title: "Augmented Reality with Planar Homographies",
+    timeline: "Coursework",
     description:
-      "Semi-automated annotation pipeline leveraging SAM (Segment Anything) for accelerating dataset creation for CV projects.",
-    tags: ["SAM", "Python", "OpenCV", "Streamlit", "Data Pipeline"],
-    github: "https://github.com/Nagarjunan0904",
+      "Implemented AR pipeline using planar homography estimation to overlay virtual content onto real-world surfaces.",
+    achievements: [
+      "Used SIFT/ORB feature matching with RANSAC",
+      "Achieved stable overlay under varying viewpoints",
+      "Demonstrated foundational AR and geometric vision techniques",
+    ],
+    tags: ["Augmented Reality", "Computer Vision", "Feature Matching"],
+    github: null,
+    icon: "🔭",
+    gradient: "from-purple-500/20 to-fuchsia-500/20",
+    isNew: false,
   },
 ];
 
@@ -80,49 +139,65 @@ export default function Projects() {
               className="group rounded-xl bg-surface border border-border hover:border-accent/50 transition-colors duration-300 overflow-hidden flex flex-col"
             >
               {/* Placeholder image area */}
-              <div className="h-44 bg-gradient-to-br from-accent/10 to-purple-500/10 flex items-center justify-center overflow-hidden">
-                <motion.svg
-                  className="w-12 h-12 text-accent/30 group-hover:text-accent/60 transition-colors"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  whileHover={{ scale: 1.15 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
-                  <circle cx="12" cy="12" r="3" />
-                </motion.svg>
+              <div className={`relative h-44 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
+                {project.isNew && (
+                  <span className="absolute top-3 right-3 text-xs px-2.5 py-1 rounded-full bg-accent text-white font-medium">
+                    New
+                  </span>
+                )}
+                <span className="text-5xl opacity-60 group-hover:opacity-90 group-hover:scale-110 transition-all duration-300">
+                  {project.icon}
+                </span>
+                <span className="absolute bottom-3 right-3 text-xs text-muted/60 font-[family-name:var(--font-jetbrains)]">
+                  {project.timeline}
+                </span>
               </div>
 
               <div className="p-5 flex flex-col flex-1">
-                <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-accent-light transition-colors">
+                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-accent-light transition-colors leading-snug">
                   {project.title}
                 </h3>
-                <p className="text-sm text-muted mb-4 flex-1">
+                <p className="text-sm text-muted mb-3">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
+
+                <ul className="space-y-1 mb-4 flex-1">
+                  {project.achievements.map((a, j) => (
+                    <li key={j} className="text-xs text-muted/80 flex items-start gap-1.5">
+                      <span className="text-accent mt-0.5 shrink-0">▹</span>
+                      {a}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap gap-1.5 mb-4">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent-light border border-accent/20"
+                      className="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent-light border border-accent/20"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                  </svg>
-                  View Code
-                </a>
+
+                <div className="flex items-center gap-3 pt-1 border-t border-border">
+                  {project.github ? (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                      </svg>
+                      View Code
+                    </a>
+                  ) : (
+                    <span className="text-xs text-muted/40 italic">Repo coming soon</span>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}
