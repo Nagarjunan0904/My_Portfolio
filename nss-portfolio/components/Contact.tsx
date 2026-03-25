@@ -11,7 +11,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:your.email@example.com?subject=Portfolio Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}%0A%0AFrom: ${formData.name} (${formData.email})`;
+    const mailtoLink = `mailto:nagarjunansaravananus@gmail.com?subject=Portfolio Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}%0A%0AFrom: ${formData.name} (${formData.email})`;
     window.location.href = mailtoLink;
   };
 
@@ -32,6 +32,30 @@ export default function Contact() {
             </p>
 
             <div className="space-y-4">
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-surface border border-border">
+                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent">
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs text-muted">Email</p>
+                  <p className="text-sm font-medium text-foreground">nagarjunansaravananus@gmail.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-surface border border-border">
+                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent">
+                    <path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs text-muted">Location</p>
+                  <p className="text-sm font-medium text-foreground">Binghamton, NY</p>
+                </div>
+              </div>
               <a
                 href="https://github.com/Nagarjunan0904"
                 target="_blank"
@@ -97,6 +121,7 @@ export default function Contact() {
                 }
                 className="w-full px-4 py-3 rounded-lg bg-surface border border-border focus:border-accent focus:outline-none transition-colors text-foreground placeholder:text-muted/50"
                 placeholder="Your name"
+                suppressHydrationWarning
               />
             </div>
             <div>
@@ -113,6 +138,7 @@ export default function Contact() {
                 }
                 className="w-full px-4 py-3 rounded-lg bg-surface border border-border focus:border-accent focus:outline-none transition-colors text-foreground placeholder:text-muted/50"
                 placeholder="your@email.com"
+                suppressHydrationWarning
               />
             </div>
             <div>
@@ -132,6 +158,7 @@ export default function Contact() {
                 }
                 className="w-full px-4 py-3 rounded-lg bg-surface border border-border focus:border-accent focus:outline-none transition-colors text-foreground placeholder:text-muted/50 resize-none"
                 placeholder="Your message..."
+                suppressHydrationWarning
               />
             </div>
             <button

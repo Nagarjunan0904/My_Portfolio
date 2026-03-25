@@ -1,6 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { FiGithub } from "react-icons/fi";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { staggerContainer, fadeUp } from "@/lib/animations";
 
@@ -17,8 +20,9 @@ const projects = [
       "Optimized 917K Gaussian representation on RTX 5070 GPU",
     ],
     tags: ["3D Reconstruction", "Neural Rendering", "SfM", "NeRF", "CUDA"],
-    github: null,
-    icon: "✨",
+    // TODO: Replace with actual GitHub repo URL
+    github: "https://github.com/Nagarjunan0904/3DGS_Indoor_Reconstruction",
+    image: "/projects/gaussian-splatting.png",
     gradient: "from-violet-500/20 to-indigo-500/20",
     isNew: true,
   },
@@ -34,8 +38,9 @@ const projects = [
       ">91% detection retention under 70% LiDAR point dropout",
     ],
     tags: ["Sensor Fusion", "Autonomous Driving", "Computer Vision", "LiDAR", "3D Perception"],
-    github: null,
-    icon: "🤖",
+    // TODO: Replace with actual GitHub repo URL
+    github: "https://github.com/Nagarjunan0904/Multi-Sensor_Perception_Pipeline_for_Autonomous_Surface_Vehicles",
+    image: "/projects/multi-sensor-perception.png",
     gradient: "from-blue-500/20 to-cyan-500/20",
     isNew: false,
   },
@@ -51,8 +56,9 @@ const projects = [
       "Deployed interactive Streamlit system for human-in-the-loop review",
     ],
     tags: ["Open-Vocabulary", "Maritime Safety", "Zero-Shot Detection", "Robotics"],
-    github: null,
-    icon: "🎯",
+    // TODO: Replace with actual GitHub repo URL
+    github: "https://github.com/Nagarjunan0904/Open-Vocabulary-Object-Detection-for-Maritime-Perception",
+    image: "/projects/maritime-perception.png",
     gradient: "from-teal-500/20 to-green-500/20",
     isNew: false,
   },
@@ -68,8 +74,9 @@ const projects = [
       "~95% speedup through inference caching",
     ],
     tags: ["Time Series", "Forecasting", "MLOps", "Production ML"],
-    github: null,
-    icon: "📊",
+    // TODO: Replace with actual GitHub repo URL
+    github: "https://github.com/Nagarjunan0904/Demand_Forecasting_System_for_Retail",
+    image: "/projects/demand-forecasting.png",
     gradient: "from-amber-500/20 to-orange-500/20",
     isNew: false,
   },
@@ -85,8 +92,9 @@ const projects = [
       "Containerized for reliable deployment",
     ],
     tags: ["NLP", "Data Pipeline", "Mental Health", "Social Media"],
-    github: null,
-    icon: "🧠",
+    // TODO: Replace with actual GitHub repo URL
+    github: "https://github.com/Nagarjunan0904/Mental-Health-Anonymity-Monitor",
+    image: "/projects/mham.png",
     gradient: "from-pink-500/20 to-rose-500/20",
     isNew: false,
   },
@@ -101,12 +109,112 @@ const projects = [
       "Demonstrated foundational AR and geometric vision techniques",
     ],
     tags: ["Augmented Reality", "Computer Vision", "Feature Matching"],
-    github: null,
-    icon: "🔭",
+    // TODO: Replace with actual GitHub repo URL
+    github: "https://github.com/Nagarjunan0904/Augmented-Reality-with-Planar-Homographies",
+    image: "/projects/ar-homography.png",
     gradient: "from-purple-500/20 to-fuchsia-500/20",
     isNew: false,
   },
 ];
+
+type Project = (typeof projects)[number];
+
+function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const [imageError, setImageError] = useState(false);
+  const isPlaceholderGithub = project.github.includes("YOUR_REPO_NAME_HERE");
+
+  return (
+    <motion.div
+      variants={fadeUp}
+      whileHover={{ y: -6, boxShadow: "0 16px 48px rgba(99,102,241,0.15)" }}
+      transition={{ duration: 0.22 }}
+      className="group rounded-xl bg-surface border border-border hover:border-accent/50 transition-colors duration-300 overflow-hidden flex flex-col"
+    >
+      {/* Project image */}
+      <div className={`relative h-44 bg-gradient-to-br ${project.gradient} overflow-hidden`}>
+        {!imageError ? (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            priority={index < 3}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            onError={() => setImageError(true)}
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <svg
+              className="w-12 h-12 text-accent/20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M3 9l4-4 4 4 4-4 4 4" />
+              <circle cx="8.5" cy="13.5" r="1.5" />
+            </svg>
+          </div>
+        )}
+        {project.isNew && (
+          <span className="absolute top-3 right-3 z-10 text-xs px-2.5 py-1 rounded-full bg-accent text-white font-medium">
+            New
+          </span>
+        )}
+        <span className="absolute bottom-3 right-3 z-10 text-xs text-white/70 font-[family-name:var(--font-jetbrains)] drop-shadow">
+          {project.timeline}
+        </span>
+      </div>
+
+      <div className="p-5 flex flex-col flex-1">
+        <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-accent-light transition-colors leading-snug">
+          {project.title}
+        </h3>
+        <p className="text-sm text-muted mb-3">{project.description}</p>
+
+        <ul className="space-y-1 mb-4 flex-1">
+          {project.achievements.map((a, j) => (
+            <li key={j} className="text-xs text-muted/80 flex items-start gap-1.5">
+              <span className="text-accent mt-0.5 shrink-0">▹</span>
+              {a}
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent-light border border-accent/20"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-2 pt-2 border-t border-border">
+          {isPlaceholderGithub ? (
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 text-xs font-medium text-muted/40 cursor-not-allowed select-none">
+              <FiGithub className="w-3.5 h-3.5" />
+              Code Coming Soon
+            </div>
+          ) : (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border hover:border-accent/50 hover:bg-accent/5 hover:shadow-[0_0_12px_rgba(99,102,241,0.15)] transition-all duration-300 text-xs font-medium text-muted hover:text-accent"
+            >
+              <FiGithub className="w-3.5 h-3.5" />
+              View Code
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Projects() {
   return (
@@ -131,75 +239,7 @@ export default function Projects() {
           viewport={{ once: true, margin: "-60px" }}
         >
           {projects.map((project, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              whileHover={{ y: -6, boxShadow: "0 16px 48px rgba(99,102,241,0.15)" }}
-              transition={{ duration: 0.22 }}
-              className="group rounded-xl bg-surface border border-border hover:border-accent/50 transition-colors duration-300 overflow-hidden flex flex-col"
-            >
-              {/* Placeholder image area */}
-              <div className={`relative h-44 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
-                {project.isNew && (
-                  <span className="absolute top-3 right-3 text-xs px-2.5 py-1 rounded-full bg-accent text-white font-medium">
-                    New
-                  </span>
-                )}
-                <span className="text-5xl opacity-60 group-hover:opacity-90 group-hover:scale-110 transition-all duration-300">
-                  {project.icon}
-                </span>
-                <span className="absolute bottom-3 right-3 text-xs text-muted/60 font-[family-name:var(--font-jetbrains)]">
-                  {project.timeline}
-                </span>
-              </div>
-
-              <div className="p-5 flex flex-col flex-1">
-                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-accent-light transition-colors leading-snug">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-muted mb-3">
-                  {project.description}
-                </p>
-
-                <ul className="space-y-1 mb-4 flex-1">
-                  {project.achievements.map((a, j) => (
-                    <li key={j} className="text-xs text-muted/80 flex items-start gap-1.5">
-                      <span className="text-accent mt-0.5 shrink-0">▹</span>
-                      {a}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent-light border border-accent/20"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex items-center gap-3 pt-1 border-t border-border">
-                  {project.github ? (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors"
-                    >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                      </svg>
-                      View Code
-                    </a>
-                  ) : (
-                    <span className="text-xs text-muted/40 italic">Repo coming soon</span>
-                  )}
-                </div>
-              </div>
-            </motion.div>
+            <ProjectCard key={i} project={project} index={i} />
           ))}
         </motion.div>
       </div>
