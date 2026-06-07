@@ -163,6 +163,7 @@ export default function Contact() {
             </div>
             <button
               type="submit"
+              suppressHydrationWarning
               className="w-full px-8 py-3 bg-accent hover:bg-accent-light text-white rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:shadow-accent/20"
             >
               Send Message

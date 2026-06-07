@@ -12,17 +12,22 @@ const cards = [
         <circle cx="12" cy="12" r="3" />
       </svg>
     ),
-    title: "Computer Vision",
-    desc: "Object detection, segmentation, tracking, and image processing",
+    title: "Computer Vision & 3D",
+    desc: "Object detection, 3D reconstruction, neural rendering, edge inference",
   },
   {
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-accent">
-        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+        <circle cx="5" cy="6" r="2" />
+        <circle cx="5" cy="18" r="2" />
+        <circle cx="12" cy="12" r="2" />
+        <circle cx="19" cy="6" r="2" />
+        <circle cx="19" cy="18" r="2" />
+        <path d="M7 6.5l3 4.5M7 17.5l3-4.5M14 11.5l3-4.5M14 12.5l3 4.5" />
       </svg>
     ),
-    title: "3D Perception",
-    desc: "Point cloud processing, depth estimation, 3D reconstruction",
+    title: "Agentic AI & LLMs",
+    desc: "LangChain pipelines, self-correcting loops, Text-to-SQL, SSE streaming",
   },
   {
     icon: (
@@ -32,7 +37,7 @@ const cards = [
       </svg>
     ),
     title: "Deep Learning",
-    desc: "CNN, Transformer architectures, model optimization",
+    desc: "PyTorch, Vision Transformers, TensorRT optimization, model deployment",
   },
   {
     icon: (
@@ -40,8 +45,8 @@ const cards = [
         <path d="M18 20V10M12 20V4M6 20v-6" />
       </svg>
     ),
-    title: "Data Science",
-    desc: "Statistical analysis, data pipelines, visualization",
+    title: "Production ML",
+    desc: "FastAPI services, Docker, Cloud Run, end-to-end ML pipelines",
   },
 ];
 
@@ -61,21 +66,22 @@ export default function About() {
           <ScrollReveal variants={fadeLeft}>
             <div className="space-y-5 text-muted leading-relaxed">
               <p>
-                I&apos;m Nagarjunan Saravanan, a passionate Computer Vision and AI
-                Engineer dedicated to building intelligent systems that bridge the
-                gap between visual data and actionable insights.
+                I&apos;m Nagarjunan Saravanan, an AI and Computer Vision Engineer building
+                production-grade intelligent systems at the intersection of visual perception,
+                large language models, and agentic AI. My work spans from 3D neural scene
+                reconstruction to self-correcting LLM pipelines deployed at scale.
               </p>
               <p>
-                My expertise spans across 2D image understanding, 3D perception
-                and point cloud processing, deep learning model development, and
-                deploying production-grade ML pipelines. I work at the intersection
-                of classical computer vision and modern deep learning.
+                My foundation is deep: 2D/3D visual perception, multi-sensor fusion, neural
+                rendering, and edge-optimized inference. I&apos;m now expanding into Agentic AI
+                systems, Text-to-SQL applications, and LLM-powered full-stack products —
+                bridging the gap between computer vision research and production AI engineering.
               </p>
               <p>
-                Whether it&apos;s building real-time object detection systems,
-                developing 3D scene understanding pipelines, or training custom
-                neural networks — I thrive on solving complex visual perception
-                challenges.
+                Whether it&apos;s optimizing YOLOv8 with TensorRT for real-time maritime edge
+                deployment, reconstructing 3D indoor scenes with Gaussian Splatting, or
+                engineering self-correcting LLM loops that query 25M+ records in plain
+                English — I build systems that work in the real world.
               </p>
             </div>
           </ScrollReveal>

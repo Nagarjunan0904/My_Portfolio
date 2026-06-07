@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { heroContainer, heroItem, fadeIn } from "@/lib/animations";
 
 const roles = [
-  "Computer Vision Engineer",
-  "Perception Engineer",
-  "Machine Learning Engineer",
   "AI Engineer",
+  "Computer Vision Engineer",
+  "ML Engineer",
+  "Perception Engineer",
   "Data Scientist",
 ];
 
@@ -112,8 +112,9 @@ export default function Hero() {
           variants={heroItem}
           className="text-muted text-lg max-w-2xl mx-auto mb-10"
         >
-          Building intelligent systems that see, understand, and perceive the
-          world — from 2D image analysis to 3D point cloud processing.
+          Building production AI systems at the intersection of Computer Vision,
+          Large Language Models, and Agentic AI — from 3D scene reconstruction
+          to self-correcting LLM pipelines.
         </motion.p>
 
         <motion.div

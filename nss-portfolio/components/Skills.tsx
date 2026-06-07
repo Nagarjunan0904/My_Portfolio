@@ -25,6 +25,9 @@ import {
   SiNumpy,
   SiPandas,
   SiNvidia,
+  SiOpenai,
+  SiPostgresql,
+  SiReact,
 } from "react-icons/si";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { staggerContainer, fadeUp } from "@/lib/animations";
@@ -44,6 +47,22 @@ interface Category {
 }
 
 const categories: Category[] = [
+  {
+    title: "Agentic AI & LLM Systems",
+    accentColor: "#10B981",
+    items: [
+      { name: "LangChain", color: "#1C3C3C", shortLabel: "LangChain" },
+      { name: "OpenAI GPT-4o", icon: SiOpenai, color: "#412991", shortLabel: "GPT-4o" },
+      { name: "FastAPI (LLM)", icon: SiFastapi, color: "#009688" },
+      { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
+      { name: "SQLAlchemy", color: "#CA0000", shortLabel: "SQLAlch" },
+      { name: "SSE Streaming", color: "#6EE7B7", shortLabel: "SSE" },
+      { name: "React + Vite", icon: SiReact, color: "#61DAFB" },
+      { name: "Recharts", color: "#22D3EE", shortLabel: "Recharts" },
+      { name: "Railway", color: "#0B0D0E", shortLabel: "Railway" },
+      { name: "Docker Compose", icon: SiDocker, color: "#2496ED" },
+    ],
+  },
   {
     title: "Computer Vision & 3D Reconstruction",
     accentColor: "#5C3EE8",

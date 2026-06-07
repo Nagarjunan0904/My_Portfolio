@@ -3,11 +3,29 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FiGithub } from "react-icons/fi";
+import { FiGithub, FiExternalLink } from "react-icons/fi";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { staggerContainer, fadeUp } from "@/lib/animations";
 
 const projects = [
+  {
+    title: "QueryMind — LLM-Powered Text-to-SQL Analytics",
+    timeline: "May 2026 - Jun 2026",
+    description:
+      "Production-grade Text-to-SQL application enabling anyone to query 25M+ NYC taxi records in plain English, featuring a self-correcting LLM loop and real-time streaming SQL generation.",
+    achievements: [
+      "Engineered self-correcting LLM loop (LangChain + GPT-4o) intercepting PostgreSQL errors and regenerating SQL across up to 3 attempts, reducing query failure rate ~30%",
+      "Built SSE streaming backend with FastAPI delivering real-time token-by-token SQL generation and auto-detected chart visualization via Recharts",
+      "Implemented two-layer safety guardrail: SELECT-only enforcement + regex word-boundary forbidden keyword detection across all query attempts",
+      "Deployed full-stack production app — Railway backend + Vercel frontend — querying 25M+ real NYC taxi records live at querymind.vercel.app",
+    ],
+    tags: ["LangChain", "GPT-4o", "FastAPI", "PostgreSQL", "React", "Agentic AI"],
+    github: "https://github.com/Nagarjunan0904/QueryMind",
+    liveUrl: "https://llm-powered-text-to-sql-analytics-a.vercel.app",
+    image: "/projects/querymind.png",
+    gradient: "from-emerald-500/20 to-teal-500/20",
+    isNew: true,
+  },
   {
     title: "3D Gaussian Splatting – Indoor Multi-Room Reconstruction",
     timeline: "Mar 2026",
@@ -24,7 +42,7 @@ const projects = [
     github: "https://github.com/Nagarjunan0904/3DGS_Indoor_Reconstruction",
     image: "/projects/gaussian-splatting.png",
     gradient: "from-violet-500/20 to-indigo-500/20",
-    isNew: true,
+    isNew: false,
   },
   {
     title: "Multi-Sensor Perception Pipeline (AGV System)",
@@ -50,12 +68,12 @@ const projects = [
     description:
       "Built a comparative pipeline for open-vocabulary detection enabling identification of unseen maritime objects using language-driven queries.",
     achievements: [
-      "Benchmarked YOLOv8 vs OWL-ViT and GroundingDINO",
-      "Achieved mAP@0.5 ≈ 0.71 on known classes",
-      "Improved recall on novel hazards using language-driven queries",
-      "Deployed interactive Streamlit system for human-in-the-loop review",
+      "Benchmarked YOLOv8m vs OWL-ViT and GroundingDINO on MaSTr1325 maritime dataset, achieving mAP@0.5 of 0.226 for closed-set and superior open-world recall with GroundingDINO",
+      "Applied TensorRT FP16/INT8 optimization on YOLOv8m achieving 2.84–2.99× speedup (9.82ms → 3.28ms latency) with <1.1% mAP loss for real-time edge deployment on ASVs",
+      "Demonstrated language-driven zero-shot detection of unseen maritime obstacles (floating debris, rare vessels) via natural language queries",
+      "Deployed interactive Streamlit system for human-in-the-loop review and rapid model comparison across three detection paradigms",
     ],
-    tags: ["Open-Vocabulary", "Maritime Safety", "Zero-Shot Detection", "Robotics"],
+    tags: ["Open-Vocabulary", "Maritime Safety", "Zero-Shot Detection", "TensorRT", "Robotics"],
     // TODO: Replace with actual GitHub repo URL
     github: "https://github.com/Nagarjunan0904/Open-Vocabulary-Object-Detection-for-Maritime-Perception",
     image: "/projects/maritime-perception.png",
@@ -208,6 +226,17 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             >
               <FiGithub className="w-3.5 h-3.5" />
               View Code
+            </a>
+          )}
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border hover:border-accent/50 hover:bg-accent/5 hover:shadow-[0_0_12px_rgba(99,102,241,0.15)] transition-all duration-300 text-xs font-medium text-muted hover:text-accent"
+            >
+              <FiExternalLink className="w-3.5 h-3.5" />
+              Live Demo
             </a>
           )}
         </div>
