@@ -28,6 +28,7 @@ import {
   SiOpenai,
   SiPostgresql,
   SiReact,
+  SiElasticsearch,
 } from "react-icons/si";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { staggerContainer, fadeUp } from "@/lib/animations";
@@ -61,6 +62,11 @@ const categories: Category[] = [
       { name: "Recharts", color: "#22D3EE", shortLabel: "Recharts" },
       { name: "Railway", color: "#0B0D0E", shortLabel: "Railway" },
       { name: "Docker Compose", icon: SiDocker, color: "#2496ED" },
+      { name: "Pinecone", color: "#1C1C3C", shortLabel: "Pinecone" },
+      { name: "Elasticsearch", icon: SiElasticsearch, color: "#FEC514" },
+      { name: "Cohere", color: "#39594D", shortLabel: "Cohere" },
+      { name: "LangGraph", color: "#1C3C3C", shortLabel: "LangGraph" },
+      { name: "RAGAS", color: "#A78BFA", shortLabel: "RAGAS" },
     ],
   },
   {

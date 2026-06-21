@@ -9,6 +9,24 @@ import { staggerContainer, fadeUp } from "@/lib/animations";
 
 const projects = [
   {
+    title: "Agentic Healthcare RAG — Query Planning & Self-Correction",
+    timeline: "Jun 2026",
+    description:
+      "Production-style RAG system grounded in NIH medical data that routes each query through a Claude-powered planner to one of three retrieval strategies — semantic vector search, BM25 keyword search, or SQL — then applies Cohere reranking and a self-correction loop before answering.",
+    achievements: [
+      "Architected a Claude-powered query planner that dynamically routes questions across SEMANTIC (Pinecone), KEYWORD (Elasticsearch BM25), and STRUCTURED (PostgreSQL) retrieval paths based on intent, not surface phrasing",
+      "Built a self-correction loop with confidence scoring (40% retrieval + 60% answer quality) that triggers HyDE-style re-retrieval up to 2 retries, preventing hallucinated answers on low-confidence queries",
+      "Evaluated on 100 healthcare questions via RAGAS, achieving 0.97 faithfulness and 0.93 context precision on the KEYWORD path, with perfect 1.00 context recall on STRUCTURED SQL queries",
+      "Deployed a zero-fixed-cost production stack — Serverless FastAPI on Railway, Pinecone, Elasticsearch, and PostgreSQL — orchestrated with LangGraph and a React frontend on Vercel",
+    ],
+    tags: ["LangGraph", "Claude", "RAG", "Pinecone", "Elasticsearch", "Agentic AI"],
+    github: "https://github.com/Nagarjunan0904/Agentic-RAG-with-query-planning-and-self-correction",
+    liveUrl: "https://agentic-rag-with-query-planning-and.vercel.app/",
+    image: "/projects/agentic-healthcare-rag.png",
+    gradient: "from-rose-500/20 to-orange-500/20",
+    isNew: true,
+  },
+  {
     title: "QueryMind — LLM-Powered Text-to-SQL Analytics",
     timeline: "May 2026 - Jun 2026",
     description:
@@ -24,7 +42,7 @@ const projects = [
     liveUrl: "https://llm-powered-text-to-sql-analytics-a.vercel.app",
     image: "/projects/querymind.png",
     gradient: "from-emerald-500/20 to-teal-500/20",
-    isNew: true,
+    isNew: false,
   },
   {
     title: "3D Gaussian Splatting – Indoor Multi-Room Reconstruction",
