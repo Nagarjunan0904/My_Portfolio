@@ -9,6 +9,42 @@ import { staggerContainer, fadeUp } from "@/lib/animations";
 
 const projects = [
   {
+    title: "Prospectus — Multi-Agent Financial Due-Diligence System",
+    timeline: "Jul 2026",
+    description:
+      "LangGraph orchestrator driving four MCP-native specialist agents against SEC EDGAR, FinBERT sentiment, quant signals, and a risk synthesiser to produce citation-grounded investment memos for any US-listed ticker in under a minute.",
+    achievements: [
+      "Architected four independent MCP servers (Data, Quant, Sentiment, Risk) with typed Pydantic schemas, bearer-token auth, and audit logging — enabling any MCP-compatible client to call agent tools without touching the orchestration layer",
+      "Built a deterministic self-critique loop that verifies every memo claim via dotted-path lookup into real agent state, achieving 100% citation coverage in evaluation without a second LLM call",
+      "Implemented LangGraph fan-out/fan-in with checkpointed resumability — proven via interrupt_after tests that downstream nodes are genuinely skipped and state is persisted across partial runs",
+      "Consolidated 4 MCP servers and FastAPI into a single supervisord-managed Railway container with Postgres checkpointing, reducing infrastructure to 2 services at near-zero idle cost",
+    ],
+    tags: ["LangGraph", "MCP", "Multi-Agent", "GPT-4.1-mini", "FinBERT", "SEC EDGAR"],
+    github: "https://github.com/Nagarjunan0904/Prospectus",
+    liveUrl: "",
+    image: "/projects/prospectus.png",
+    gradient: "from-sky-500/20 to-blue-500/20",
+    isNew: true,
+  },
+  {
+    title: "Multimodal RAG — Visual + Text PDF Retrieval",
+    timeline: "Jun 2026 - Jul 2026",
+    description:
+      "RAG system that retrieves answers from diagrams, charts, and spec tables — content that text-only pipelines miss entirely — using ColPali patch-level visual embeddings fused with BGE-M3 text retrieval against Qdrant.",
+    achievements: [
+      "Implemented ColPali (vidore/colpali-v1.2) vision-language model encoding full PDF page images as 1024 patch-level multivectors, enabling OCR-free retrieval from diagrams and spec tables via Qdrant MaxSim scoring",
+      "Built a cross-modal score fusion pipeline combining ColPali image retrieval and BGE-M3 dense text retrieval with a +0.1 boost for text chunks co-located with top visual pages, improving answer grounding",
+      "Benchmarked multimodal vs text-only RAG on 10 diagram-dependent questions from the NVIDIA H100 whitepaper — multimodal achieved 80% accuracy vs 60% for text-only, with key wins on exact spec table values",
+      "Deployed async ingestion pipeline (FastAPI BackgroundTasks + Qdrant Cloud) processing 70-page PDFs with SSE streaming generation via GPT Vision on Railway + Vercel frontend",
+    ],
+    tags: ["ColPali", "Qdrant", "BGE-M3", "GPT Vision", "Multimodal", "RAG"],
+    github: "https://github.com/Nagarjunan0904/Multimodal_RAG_Images_and_Text_Retrieval",
+    liveUrl: "https://multimodal-rag-images-and-text-retrieval.vercel.app",
+    image: "/projects/multimodal-rag.png",
+    gradient: "from-amber-500/20 to-yellow-500/20",
+    isNew: false,
+  },
+  {
     title: "Agentic Healthcare RAG — Query Planning & Self-Correction",
     timeline: "Jun 2026",
     description:
@@ -24,7 +60,7 @@ const projects = [
     liveUrl: "https://agentic-rag-with-query-planning-and.vercel.app/",
     image: "/projects/agentic-healthcare-rag.png",
     gradient: "from-rose-500/20 to-orange-500/20",
-    isNew: true,
+    isNew: false,
   },
   {
     title: "QueryMind — LLM-Powered Text-to-SQL Analytics",

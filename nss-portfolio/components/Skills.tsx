@@ -67,6 +67,12 @@ const categories: Category[] = [
       { name: "Cohere", color: "#39594D", shortLabel: "Cohere" },
       { name: "LangGraph", color: "#1C3C3C", shortLabel: "LangGraph" },
       { name: "RAGAS", color: "#A78BFA", shortLabel: "RAGAS" },
+      { name: "Qdrant", color: "#24386C", shortLabel: "Qdrant" },
+      { name: "BGE-M3", color: "#10B981", shortLabel: "BGE-M3" },
+      { name: "ColPali", color: "#F59E0B", shortLabel: "ColPali" },
+      { name: "FinBERT", color: "#6366F1", shortLabel: "FinBERT" },
+      { name: "MCP", color: "#7C3AED", shortLabel: "MCP" },
+      { name: "Instructor", color: "#EC4899", shortLabel: "Instruc." },
     ],
   },
   {
