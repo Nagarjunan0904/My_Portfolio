@@ -6,22 +6,22 @@ import { staggerContainerSlow, fadeUp } from "@/lib/animations";
 
 const experiences = [
   {
-    role: "AI/ML Intern (Team Lead – HGI, Content Moderation)",
+    role: "AI/ML Intern (Team Lead)",
     company: "Uplifty AI",
-    period: "Aug 2025 – Present",
+    period: "Aug 2025 – May 2026",
     location: "Remote",
     description: [
-      "Led development of Human Growth Index (HGI) pipelines using transformer-based models (BERTweet + LoRA), enabling structured scoring across multiple behavioral dimensions",
-      "Built a multi-stage image moderation system combining perceptual hashing, NSFW classification, OCR signals, and rule-based decisioning, improving unsafe-content recall by ~18% with <3% false positives",
-      "Designed event-driven ML workflows using Supabase triggers, enabling real-time content evaluation and scalable orchestration across services",
-      "Optimized inference pipelines on Cloud Run, reducing latency from ~420 ms → ~190 ms (~55% improvement) through preprocessing and model efficiency tuning",
+      "Led end-to-end ML development of the Human Growth Index (HGI), fine-tuning RoBERTa-base for 28-label emotion classification and training TF-IDF + ensemble classifiers across 13 wellness dimensions to score user reflections and propose bounded point adjustments; deployed as a secured FastAPI service on Google Cloud Run with artifacts in GCS.",
+      "Architected a 5-layer GCP-native content moderation pipeline as a Supabase Edge Function, integrating GCP Moderation APIs and Gemini 2.5 Flash-Lite with SHA-256 caching and budget enforcement for zero-cost automated scanning at launch scale.",
+      "Designed a Personal AI Nudge Engine (PAI) using a fine-tuned LLaMA 3.2-1B LoRA adapter, implementing a 6-trigger wellness cascade with guardrail validation and a Gemini Flash fallback that auto-logs outputs for continuous model improvement.",
+      "Built a personalized Content Feed ranking pipeline using a DeBERTa-v3-small topic classifier and a 4-signal scoring formula (topic affinity, HGI growth, engagement quality, uplift impact) with recency decay and a moderation safety gate before any post reaches the feed.",
     ],
     tech: ["Python", "PyTorch", "Transformers", "FastAPI", "Google Cloud Run", "PDQ", "OCR", "Supabase"],
   },
   {
     role: "Research Assistant – Marine Robotics Lab",
     company: "Binghamton University",
-    period: "Aug 2025 – Present",
+    period: "Aug 2025 – May 2026",
     location: "Binghamton, NY",
     description: [
       "Conducted field deployments using BlueBoat USV, collecting synchronized Side-Scan Sonar (SSS) and Single-Beam Echosounder (SBE) datasets for underwater perception and mapping",
